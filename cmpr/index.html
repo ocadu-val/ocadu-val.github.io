@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Compara</title>
+	<meta name="author" content="Marcus A. Gordon, Minsheng Zheng, Michael Carnevale, Sara Diamond" />
+	<meta name="description" content="Compara, an intuitive, interactive and searchable index that visualizes the attributes of software from a wide-range of applications and technologies. OCAD University Visual Analytics Lab." />
+	<meta name="keywords"  content="Compara, VIZLAND, VAL, Visual Analytics Lab, OCAD U, tree, bipartite, comparative, visualization, taxonomy, digital methodology" />
+	<meta name="Resource-type" content="Document" />
+
+	<link rel="stylesheet" type="text/css" href="./css/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="./css/compara.css" />
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/simptip.min.css" />
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+	<script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
+
+	<script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="./js/scrolloverflow.min.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#sects').fullpage({
+			navigationTooltips: ['home', 'Abstract', 'Description', 'Objectives', 'Literature Review', 'Design Process', 'The Result', 'Future Work', 'Endnotes', 'Bibliography'],
+			anchors: ['home0', 'abstract0', 'description0', 'objectives0', 'literature0', 'design0', 'result0', 'future0', 'endnotes0', 'bibliography0']
+		});
+	});
+
+	</script>
+
+</head>
+<body>
+
+	<div id="sects">
+		<div class="section active" id="home">
+			<img alt="OCAD U logo" src="logo.svg" width="125px" />
+			<h1>Compara</h1>
+		</div>
+		<div class="section" id="abstract">
+			<article class="post entry">
+				<header class="entry-header">
+					<h2 class="entry-subtitle">Abstract</h2>
+					<p class="entry-meta">
+						<strong>Authors</strong> Michael Carnevale (OCAD U), Dr. Sara Diamond (OCAD U), Minsheng Zheng (OCAD U), Marcus Gordon (OCAD U). 	&nbsp;
+					</p>
+				</header>
+				<main class="entry-content">
+					<p>The OCAD University <a alt="Open Visual Analytics Lab in new window" href="http://www2.ocadu.ca/research/val" target="_blank">Visual Analytics Laboratory</a> (VAL) has developed a taxonomy of end users, software systems, data types, tasks and interactivity within the domain of smart city transportation planning. This paper contributes to a taxonomy by creating Compara, an intuitive, interactive and searchable index that visualizes the attributes of software from a wide-range of applications and technologies. The taxonomy began as a spreadsheet that we transformed into a custom interactive data visualization that could help users find and understand existing tools and their attributes<sup><a href="#endnotes0">1</a></sup>.</p>
+
+					<p>The taxonomy and interactive index are a component of the <a alt="Open iCity Project site in a new window" href="http://uttri.utoronto.ca/research/projects/icity/" target="_blank">iCity</a> project which brings together academic, government, and industrial partners in order to improve the quality of life for urban residents and visitors through the development and integration of advanced IT infrastructure for the purpose of managing transit and transportation. The taxonomy and resulting tools discussed in this paper have expanded to include resources for urban planning which also impact transit and transportation.</p>
+
+					<p>One of the primary uses of the taxonomy is to help various iCity project teams and stakeholders locate software that may be useful to their design and development process, as well as to understand the end-users of this technology. The taxonomy may be used to develop a city management dashboard for city planners and analysts, or equally, to design a city-services facing mobile service application.</p>
+
+				</main>
+			</article>
+		</div>
+		<div class="section" id="description">
+			<div class="slide">
+				<article class="post entry">
+					<header class="entry-header">
+						<h2 class="entry-subtitle">Description of Visualization Goals</h2>
+						<p class="entry-meta">
+						</p>
+					</header>
+					<main class="entry-content">
+						<p>The data visualization problem we address is how to convert a large and growing spreadsheet of categorized, hierarchical, and relational qualitative data into an interactive visual diagram that can be used to quickly understand the broad-scale application landscape of transit and transportation digital tools. We look for hierarchical patterns and represent the associations that the taxonomy indicates of sub-attributes. Put another way, how can we visualize a software taxonomy and the relationships that it captures? It includes sub-attributes such as user-types, technologies, data types and format, tasks, visualization types, and levels of interactivity.</p>
+
+						<p>The aim of the taxonomy is to help end-users sort through the software landscape to understanding the qualities of domain tools and then choose products or design software to meet the needs of the domain. To be successful, Compara must deploy a consistent glossary of terms, so that attribute terms appear for multiple software products. Compara must also allow users to identify software associated with specific user-types. Since user-type is one attribute amongst many, Compara must generalize the identification algorithm for other attributes.</p>
+
+						<p>The scope and limitations of this data visualization problem is impacted by the reality that the software taxonomy can never said to be fully complete as new software are always being released, and identifying every last one in the market is difficult. This is a data collection problem not a visualization problem. Ideally, the visualization that we develop should be able to generalize to other instantiations of this kind of problem, namely visualizing an entire hierarchical index and its associated attributes. New data can constantly be added. <button class="fig" onclick="location.href='#description0/figure1'">Figure 1</button> illustrates the overall structure of the taxonomy spreadsheet in its original instantiation.</p>
+
+					</main>
+				</article>
+			</div>
+
+			<div class="slide" data-anchor="figure1">
+				<article class="post entry">
+					<header class="entry-header">
+						<p class="entry-meta"></p>
+						<img alt="Figure 1: Cropped subsection of spreadsheet showing how the software hierarchy is organized, as well as the associated attributes for each software. Software are categorized based on their use and type. Smallest brackets represent individual software." src="fig/1.png" max-width="1000px" />
+						<p><span class="flabel">Figure 1:</span> Cropped subsection of spreadsheet showing how the software hierarchy is organized, as well as the associated attributes for each software. Software are categorized based on their use and type. Smallest brackets represent individual software.</p>
+					</header>
+				</article>
+			</div>
+		</div>
+
+		<div class="section" id="objectives">
+			<article class="post entry">
+				<header class="entry-header">
+					<h2 class="entry-subtitle">Objectives and Questions</h2>
+					<p class="entry-meta"></p>
+				</header>
+				<main class="entry-content">
+					<p><b>The immediate objectives and research questions are:</b></p>
+					<p>1. To implement a visualization that will simultaneously show an hierarchical
+						qualitative structure, as well as its associations to external attributes. Does such a visualization technique exist?</p>
+					<p>2. To determine if the spreadsheet format can be simplified to show the overall structure of its relational contents more clearly.</p>
+					<p>3. To investigate how an indexical structure can be visualized in an aesthetic and engaging way.</p>
+					<p>4. To investigate whether this visualization can be implemented most effectively as a static visual artifact, or if its functional purpose can be improved through interactive elements?</p>
+					<p>5. To determine how a visualization technique for Compara can be generalized and scaled as the software taxonomy continues to grow.</p>
+				</main>
+			</article>
+		</div>
+
+		<div class="section" id="literature">
+			<div class="slide">
+				<article class="post entry">
+					<header class="entry-header">
+						<h2 class="entry-subtitle">Literature Review</h2>
+						<p class="entry-meta">
+						</p>
+					</header>
+					<main class="entry-content">
+						<p>We focused on the general themes of hierarchical structures, node-link representation, and examples of visual taxonomy from software research. A taxonomy is essentially a system of classification that typically organizes categories by their sub-ordinate or super-ordinate relationships within a hierarchy <a href="#bibliography0">(Cain, 2011)</a>. Taxonomic classification systems exist within many domains of research including software engineering, database work, genealogical recording, bibliometrics, and others, but the idea is most typically associated with the classification of organisms in the biological sciences.</p>
+						<p>Taxonomies and hierarchies are often visualized using tree diagrams, a visualization technique that dates back centuries and whose early works are often attempts to depict the ancient classification systems developed by philosophers such as Aristotle.</p>
+						<p>In <i><a href="#bibliography0">The Book of Trees: Visualizing Branches of Knowledge</a></i> by Lima (2014), various kinds of tree diagrams and their historical origins are depicted. Tree diagrams are not limited to the typical visual structure that actually looks like a figurative tree, and the concept of visualizing hierarchical structures has taken on more and more abstracted forms over time, each with their unique advantages. </p>
+					</main>
+				</article>
+			</div>
+			<!-- <div class="slide" data-anchor="figure2">
+				<article class="post entry">
+					<header class="entry-header">
+						<h2 class="entry-subtitle"></h2>
+						<p class="entry-meta"></p>
+						<img alt="Classification of organisms from the most specific sub-ordinate species level, through to the highest and most broad super-ordinate level of domain (left). Early example of tree diagram visualization entitled the Porphyrian Tree by Ramon Llull from Logica Nova 1512, depicting the levels of being as originally described by Aristotle (right)." src="fig/2.png" max-width="1000px" />
+						<p><span class="flabel">Figure 2:</span> Classification of organisms from the most specific sub-ordinate species level, through to the highest and most broad super-ordinate level of domain (left). Early example of tree diagram visualization entitled the Porphyrian Tree by Ramon Llull from Logica Nova 1512, depicting the levels of being as originally described by Aristotle (right).</p>
+					</header>
+				</article>
+			</div> -->
+			<!-- <div class="slide" id="figure3" data-anchor="figure3">
+				<article class="post entry">
+					<header class="entry-header">
+						<h2 class="entry-subtitle">Hierarchical Visualization</h2>
+						<p class="entry-meta"></p>
+					</header>
+					<main class="entry-content">
+						<p><span class="flabel">Figure 3:</span> Depiction of various hierarchical visualization types inspired by the initial tree diagram as shown in <a href="#bibliography0">Lima (2014)</a>. Each visualization type has unique advantages and disadvantages. <br /><br />Some points on each tree diagram adaptation is provided here: <br /><br />
+							<i>(rollover items below to reveal points)</i>
+							<br /><br />
+							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Original tree diagrams that looked like literal trees. Diagrammatic terms like root node, branch link, and leaf were adapted from this original metaphor.">Figurative Tree Diagram</button>
+							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Vertical Tree Diagram:</em> Common tree diagram abstracted from figurative trees. Nodes and links can incorporate a variety of visual features, symbols, or icons to convey information.">Vertical Tree Diagram</button>
+							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Common tree diagram with correspondence to left-to-right reading.">Horizontal Tree Diagram</button>
+							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Tree diagram with no hierarchical ordering along a particular spatial axis. Effective for very large hierarchical systems as visual space is optimally used, but ranking structure becomes unclear due to flexible layout.">Multidirectional Trees</button>
+							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Tree structure ordered circularly, with the root in the center and sub- ordinate hierarchies moving towards the peripheral. Spatially efficient compared to tree diagram (see Figure 4 for visual comparison).">Radial Tree</button>
+							<button class="simptip-position-right simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Radial tree typically rendered in digital space where some links and nodes are more emphasized than others. Optimizes screen space that radial trees might waste.">Hyperbolic Tree</button>
+							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Space filling visualization depicting hierarchies using nested rectangles. Size of rectangles can correspond to quantitative attributes. Spatially efficient and legible.">Treemap</button>
+							<button class="simptip-position-right simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Similar to Treemaps but use polygons rather than rectangles to present hierarchies. Size of polygons can correspond with quantitative attributes. More spatially optimized than Treemaps and hierarchies are easier to distinguish due to non-recurring shapes.">Voronoi Treemap</button>
+							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Similar to other treemaps, hierarchies depicted as shapes within shapes, and size can correspond to data. Unlike other treemaps this type wastes visual space.">Circular Treemap</button>
+							<button class="simptip-position-right simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Treemap structure ordered circularly. Hierarchies depicted with root in center and sub-ordinate hierarchies moving towards the periphery. Size of shapes can correspond to data. Spatially efficient but distinctions between layers can be hard to perceive.">Sunburst</button>
+							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Combination between conventional Tree Diagram and Treemap. Organized top-to-bottom or left-to-right, hierarchy is shown as adjacent rectangles to show rank. Size of shapes can correspond to data. Not as spatially efficient as conventional Treemap.">Icicle Tree</button>
+						</p>
+						<img alt="Figure 3: Depiction of various hierarchical visualization types inspired by the initial tree diagram as shown in Lima (2014). Each visualization type has unique advantages and disadvantages. Some points on each tree diagram adaptation is provided here: "src="fig/3.svg" width="650px" />
+					</main>
+				</article>
+			</div> -->
+			<!-- <div class="slide" data-anchor="figure4">
+				<article class="post entry">
+					<header class="entry-header">
+						<h2 class="entry-subtitle"></h2>
+						<p class="entry-meta"></p>
+						<img alt="Figure 4: Horizontal tree diagram vs. radial tree diagram. Both diagrams depict the same hierarchical data, namely the code structure of an open-source software package called Flare (Heer, Bostock, Ogievetsky, 2010). While both effectively show the hierarchical structures, the circular diagram is spatially more efficient. The horizontal diagram however follows the typical left-to-right reading pattern." src="fig/4.png" height="700px" />
+						<p><span class="flabel">Figure 4:</span> Horizontal tree diagram vs. radial tree diagram. Both diagrams depict the same hierarchical data, namely the code structure of an open-source software package called Flare (Heer, Bostock, Ogievetsky, 2010). While both effectively show the hierarchical structures, the circular diagram is spatially more efficient. The horizontal diagram however follows the typical left-to-right reading pattern.</p>
+					</header>
+				</article>
+			</div> -->
+
+			<div class="slide" id="literature2">
+				<article class="post entry">
+					<header class="entry-header">
+						<p class="entry-meta"></p>
+					</header>
+					<main class="entry-content">
+						<p>The above examples provide options for visualizing hierarchical structures, but our visualization problem also involves revealing attributes associated with individual software, which in the current project context are found as the most subordinate leaf nodes. Visualizations showing software and associated attributes can be found in software engineering research. One such example comes from <a href="#bibliography0">Grimstead et al (2005)</a> where they create a list of categorized software systems and score them based on their scalability.</p>
+						<p>As can be seen in the table they present, these software systems are each associated with the presence or absence of some attributes. To summarize the data, the researchers made numerous attribute values and averaged them, and then visualized the scores along the axes of a polar plot to create shapes for each software group. Note that leaf-level taxonomical information is lost in the averaged the polar plot.<br /> <br />
+
+						Another example of taxonomy in the area of software development comes from <a href="#bibliography0">Kucher and Kerren (2015)</a> where they visualized a taxonomic classification system for text- based visualizations. </p>
+
+						<p>Their taxonomy is an attempt to understand the inventory of text-based visualization that is a result of social media creating an explosion of data to mine. In their paper these authors offer a taxonomy of text-based visualization software as well as a browser-based visual survey of text-based visualizations that they have identified (<a href="http://textvis.lnu.se/" target="_blank">http://textvis.lnu.se/</a>).</p>
+					</main>
+				</article>
+			</div>
+
+			<!-- <div class="slide" data-anchor="figure5">
+				<img alt="Figure 5: Table of grouped software and attributes (left). Groups of software visualized based on their averaged attribute values in a polar plot." src="fig/5.png" width="900px" />
+				<br /><br />
+				<span><span class="flabel">Figure 5:</span> Table of grouped software and attributes (left). Groups of software visualized based on their averaged attribute values in a polar plot.</span>
+			</div>
+			<div class="slide" data-anchor="figure6a">
+				<img alt="Figure 6a: Kucher and Kerren’s (2015) visualization of text-based visualization types. Leaf nodes represent defining characteristics, which are ordered in a hierarchy from leaf to root (top)." src="fig/6-a.png" width="900px" />
+				<br /><br />
+				<span><span class="flabel">Figure 6a:</span> Kucher and Kerren’s (2015) visualization of text-based visualization types. Leaf nodes represent defining characteristics, which are ordered in a hierarchy from leaf to root (top).</span>
+			</div>
+			<div class="slide" data-anchor="figure6b">
+				<img alt="Figure 6b:</span> Online visual survey of digital text-based visualization types developed by the authors." src="fig/6-b.png" width="900px" />
+				<br /><br />
+				<span><span class="flabel">Figure 6b:</span> Online visual survey of digital text-based visualization types developed by the authors.</span>
+			</div> -->
+
+			<div class="slide" id="literature3">
+				<article class="post entry">
+					<header class="entry-header">
+						<p class="entry-meta"></p>
+					</header>
+					<main class="entry-content">
+						<p>For our taxonomy and attribute visualization to be comprehensive, we must be able to show connections at the leaf-level that reveal individual software to be compared. Types of node-link visualizations showing leaf-level connections include arc-diagrams and bi-partite diagrams. Arc-diagrams draw link connections between nodes that exist along a single axis (<a href="#bibliography0">Wattenberg, 2002</a>) while bi-partite diagrams show linked associations between two sets of nodes representing distinct classes (<a href="#bibliography0">Wang et al, 2015</a>). </p>
+
+						<p>An example of an arc-diagram depicting relations between software task types is shown in a visualization created by Autodesk in 2010 depicting which application tasks are most used in their 3D modelling software 3DsMax. In contrast, a bipartite graph from a neuroscience article shows which of two sets of brain regions are connected (<a href="#bibliography0">Bohland et al, 2009</a>).<br /> <br />
+
+						While not comprehensive, the above brief literature review offers a view of the landscape for hierarchical and software taxonomic visualization. </p>
+
+						<p>Interestingly, we did not find an identical example of software taxonomy visualization that solves the exact same problem as our current project mandate. While the taxonomic systems visualized in the literature showed categorization schemes for software, we have an entire database of software that must be organized into a hierarchy and sorted based on external attribute values. In the next section, we outline the design process and results of our prototyping efforts.</p>
+					</main>
+				</article>
+			</div>
+			<!-- <div class="slide" data-anchor="figure7">
+				<span><span class="flabel">Figure 7:</span> Arc diagram created by Autodesk research plotting the use of specific applications tasks in their software 3DsMax. The arcs show which commands are used together in sequential order.</span>
+				<p>&nbsp;</p>
+				<img alt="Figure 7: Arc diagram created by Autodesk research plotting the use of specific applications tasks in their software 3DsMax. The arcs show which commands are used together in sequential order." src="fig/7.png" height="800px" />
+			</div>
+			<div class="slide" data-anchor="figure8">
+				<span><span class="flabel">Figure 8:</span> A bipartite graph showing the relationships between two sets of classes. This graph shows which of two sets of brain regions are connected to each other.</span>
+				<p>&nbsp;</p>
+				<img alt="Figure 8: A bipartite graph showing the relationships between two sets of classes. This graph shows which of two sets of brain regions are connected to each other." src="fig/8.png" height="800px" />
+			</div> -->
+		</div>
+
+		<div class="section" id="design-process">
+			<div class="slide">
+				<article class="post entry">
+					<header class="entry-header">
+						<h2 class="entry-subtitle">Methods - Design Process</h2>
+						<p class="entry-meta"></p>
+					</header>
+					<main class="entry-content">
+						<p>To solve the visualization problem we undertook design sketching and rapid- prototyping. For our visualization to be useful, we aimed to visualize as much of the spreadsheet information as possible without making the visualization confusing or difficult to understand. We started our design process focused mostly on the hierarchical structure of the software taxonomy and later integrated attribute visualizations. Below images that demonstrate our design sketching and thinking process. Some are hand-sketched and others created with digital tools. A description of each of the sketches is provided below each figure.</p>
+
+						<p>We created a tree diagram as a starting point – <button class="fig" onclick="location.href='#design0/figure3'">Figure 3</button>. The root node represents the entire dataset, which branches out into software categories. The final sub-ordinate level, the leaf level, consists of each software system. This diagram is an example of a multidirectional tree diagram and was manually constructed using Simplemind, a mind-mapping application. This first step was promising as it represents our first digital representation. This visualization however was hand-made and not generated by inputting data and running an algorithm, and therefore was not a suitable finished solution for this project.</p>
+
+						<p>We experimented with a series of different ideas. We first planned to connect the leaves of the tree diagram to show relationships between software through arcs. We then created a sunburst-like visualization, with a chord diagram in the center to show relationships. We later tried force-diagrams, a type of multidirectional tree diagram using web-based spatial auto- organization based on weighted relationships. Finally, we attempted treemaps with inner- connections between leaves, and the same using circular treemaps. In all cases, we tried to represent a hierarchy, and then introducing new lines or visual variables. None of these represent a comprehensive solution, but this was an important brainstorming session when considering various options.</p>
+					</main>
+				</article>
+			</div>
+
+			<div class="slide" data-anchor="figure2">
+				<img alt="Figure 2: Early sketching ideas for the software taxonomy. The first instinct was to begin thinking about standard tree diagrams." src="fig/2.png" width="1000px" /><br /><br />
+				<span><span class="flabel">Figure 2:</span> Early sketching ideas for the software taxonomy. The first instinct was to begin thinking about standard tree diagrams.</span>
+			</div>
+			<div class="slide" data-anchor="figure3">
+				<img alt="Figure 3:</span> Our first tree diagram showing the software taxonomy categorized in a hierarchical structure." src="fig/3.png" width="1000px" /><br /><br />
+				<span><span class="flabel">Figure 3:</span> Our first tree diagram showing the software taxonomy categorized in a hierarchical structure.</span>
+			</div>
+
+			<div class="slide">
+				<article class="post entry">
+					<header class="entry-header">
+						<p class="entry-meta"></p>
+					</header>
+					<main class="entry-content">
+						<p>We then revisited the original tree diagram but added external nodes as illustrated in <button class="fig" onclick="location.href='#design0/figure4a'">Figure 4a</button>. <button class="fig" onclick="location.href='#design0/figure3'">Figure 3</button> can be seen in the center of the diagram, while the clusters are the periphery represent the external attributes. Connections from the taxonomy leaves to the attribute nodes visualizes which software is associated with which of the attributes.</p>
+
+						<p>This visualization is a precursor to our final project solution, but reveals some important lessons and limitations. What this indicates is that while this complex node-link setup does in fact show all the information simultaneously, it remains rather confusing and difficult to understand. Tracing the connections from attributes to software taxonomy is difficult to follow, and the image is too busy to easily follow and see the intricate relationships. This visualization was also made manually using Simplemind.</p>
+
+						<p>We experimented with the idea of connecting multiple tree diagrams in an ordered fashion, as in <button class="fig" onclick="location.href='#design0/figure4b'">Figure 4b</button>, but it became clear that this was interesting but unnecessary, and that the concept of a bipartite graph (mentioned in the literature review) would be sufficient for matching software with attributes. At this level of design thinking we became confident that our visualization concept of combining tree diagram with a bipartite graph could actually work to represent both the taxonomy and the associated attributes. From here we felt comfortable to begin prototyping using more committed and advanced methods, as will be shown below.</p>
+					</main>
+				</article>
+			</div>
+
+			<div class="slide" data-anchor="figure4a">
+				<img alt="Figure 4a: Revisiting our initial tree diagram from Figure 3, but now adding external nodes to represent the attribute information." src="fig/4a.png" width="1000px" /><br /><br />
+				<span><span class="flabel">Figure 4a:</span> Revisiting our initial tree diagram from Figure 3, but now adding external nodes to represent the attribute information.</span>
+			</div>
+			<div class="slide" data-anchor="figure4b">
+				<img alt="Figure 4b: Revisiting our initial tree diagram from Figure 3, but now adding external nodes to represent the attribute information." src="fig/4b.png" width="1000px" /><br /><br />
+				<span><span class="flabel">Figure 4b:</span> Revisiting our initial tree diagram from Figure 3, but now adding external nodes to represent the attribute information.</span>
+			</div>
+			<div class="slide" data-anchor="figure5">
+				<img alt="Figure 5: Design sketches showing our conceptualization for connecting an organized horizontal tree diagram representing the taxonomy, with an external set of nodes representing the external attributes." src="fig/5.png" height="800px" /><br /><br />
+				<span><span class="flabel">Figure 5:</span> Design sketches showing our conceptualization for connecting an organized horizontal tree diagram representing the taxonomy, with an external set of nodes representing the external attributes.</span>
+			</div>
+
+		</div>
+
+		<div class="section" id="the-result">
+			<div class="slide abstract" data-anchor="figure6">
+				<article class="post entry">
+					<header class="entry-header">
+						<h2 class="entry-subtitle">The Result:<br />Design and Implementation of the Tree Diagram / Bipartite Graph</h2>
+						<p class="entry-meta"></p>
+						<p>The final result of our design process and implementation is an interactive web-based tree-diagram/bipartite graph. As a tree-diagram and bipartite graph, Compara shows the entire software taxonomy as well as associated attributes for each leaf-level software platform.</p>
+						<img alt="Figure 6: Final tree-diagram/bipartite graph visualization of the software taxonomy and attributes dataset." src="fig/6.png" width="1000px" />
+						<p><span class="flabel">Figure 6:</span> Final tree-diagram/bipartite graph visualization of the software taxonomy and attributes dataset.</p>
+					</header>
+				</article>
+			</div>
+			<div class="slide" data-anchor="figure6x">
+				<article class="post entry">
+					<main class="entry-content">
+						<p>The horizontal tree-diagram in <button class="fig" onclick="location.href='#result0/figure6'">Figure 6</button> shows the hierarchical categorization structure of the individual software platforms that are found as the sub-ordinate leaf level of the tree. The bipartite graph is composed of the software leaf-level from the tree-diagram, combined with the set of nodes and links on the right, which represent connections to qualitative attribute values for the category of “user-type”. Effectively, this visualization shows the entire taxonomy of software and the types of users (e.g., designer, planner, citizen, etc.) most likely to benefit from using each software.</p>
+
+						<p>At the top-right, one can see a drop-down menu that allows the user to switch attributes from “user-type” to “task type” and vice-versa. Interactive elements were added to the visualization in order to enhance its usefulness in terms of highlighting software/attribute associations for analysis, switching between sets of attributes linked to the tree-diagram, and increasing readability. Five interactive elements include link highlights (<button class="fig" onclick="location.href='#result0/figure7'">Figure 7</button>), node highlights (<button class="fig" onclick="location.href='#result0/figure8'">Figure 8</button>), node selection (<button class="fig" onclick="location.href='#result0/figure9'">Figure 9</button>), attribute switch (<button class="fig" onclick="location.href='#result0/figure10'">Figure 10</button>) and zoom.</p>
+
+						<p>
+							<img alt="Figure 6x: Icon representation of our tree-diagram/bipartite graph." src="fig/6x.svg" width="150px" /><br /><br />
+							<span><span class="flabel">Figure 6x:</span> Icon representation of our tree-diagram/bipartite graph.</span>
+						</p>
+					</main>
+				</article>
+			</div>
+
+			<div class="slide" data-anchor="figure7"><h2>(1) Link Highlighting</h2>
+				<p>&nbsp;</p>
+				<img alt="Figure 7: When the mouse hovers over a node or link between software and attribute, the node-link connection is highlighted in blue. If a node has multiple links, all attached links are highlighted." src="fig/7.png" width="900px" />
+				<p>&nbsp;</p>
+				<p><span class="flabel">Figure 7:</span> When the mouse hovers over a node or link between software and attribute, the node-link connection is highlighted in blue. If a node has multiple links, all attached links are highlighted.</p>
+			</div>
+
+			<div class="slide">
+				<article class="post entry">
+					<main class="entry-content">
+						<p>To increase the legibility of our graph, users can zoom close up to the visualization to read text or focus on specific visual regions. The zoom centers on the current mouse location.<br /><br />
+
+							<b>Implementation</b>.<br /><br />
+							The implementation of our tree-diagram/bipartite graph is described below. To implement the design for the tree-diagram/bipartite graph, we decided to use the web-browser visualization technology D3. We chose D3 as there are many visualization techniques previously implemented in D3. </p>
+
+							<p>D3 provides a robust Javascript library with rich development resources and extensive community support and it is open source. It effectively supports interactivity. It is easy to integrate D3 into any web application framework. There will thus be less required effort in producing a web-based dashboard application that could be useful for presenting to OCAD U researchers or stakeholders.</p>
+
+							<p>We planned to write a script that would produce the visualization in a web-browser. The script parses and models the data read from a JSON file and renders a hybrid visualization. The data processing is shown in the <button class="fig" onclick="location.href='#result0/figure11'">Figure 11</button> System diagram.</p>
+						</main>
+					</article>
+				</div>
+				<div class="slide" data-anchor="figure8"><h2>(2) Node Highlighting</h2>
+					<p>&nbsp;</p>
+					<img alt="Figure 8: When the mouse hovers over a node (either software or attribute), the connections to that node are highlighted in blue. This acts to make more clear which attribute features are related to which software platforms, and vice-versa. The bipartite graph with its grey links is difficult to interpret on its own and this was added to help with exploring relationships." src="fig/8.png" width="900px" />
+					<p>&nbsp;</p>
+					<p><span class="flabel">Figure 8:</span> When the mouse hovers over a node (either software or attribute), the connections to that node are highlighted in blue. This acts to make more clear which attribute features are related to which software platforms, and vice-versa. The bipartite graph with its grey links is difficult to interpret on its own and this was added to help with exploring relationships.</p>
+				</div>
+				<div class="slide" data-anchor="figure9"><h2>Node Selection</h2>
+					<p>&nbsp;</p>
+					<img alt="Figure 9: When users mouse-click on a node, the connections to that node are highlighted and locked until further clicks. This allows users to compare one set of selected connections to a second set that is highlighted by mouse-hover." src="fig/9.png" width="900px" />
+					<p>&nbsp;</p>
+					<p><span class="flabel">Figure 9:</span> When users mouse-click on a node, the connections to that node are highlighted and locked until further clicks. This allows users to compare one set of selected connections to a second set that is highlighted by mouse-hover. </p>
+				</div>
+				<div class="slide" data-anchor="figure10"><h2>Attribute Switch</h2>
+					<p>&nbsp;</p>
+					<img alt="Figure 10: Using the drop-down menu at the top-right of the visualization users can switch between attributes and their value sets on the right side of the bipartite graph. The two attribute sets include “user types” (left) and “tasks” (right)." src="fig/10.png" width="900px" />
+					<p>&nbsp;</p>
+					<p><span class="flabel">Figure 10:</span> Using the drop-down menu at the top-right of the visualization users can switch between attributes and their value sets on the right side of the bipartite graph. The two attribute sets include “user types” (left) and “tasks” (right).</p>
+				</div>
+				<div class="slide">
+					<article class="post entry">
+						<main class="entry-content">
+							<p>Since D3 works best with standard file formats such as CSV and JSON, we manually extracted and formatted the data from the raw spreadsheet file to a CSV file. Then we converted the CSV file to a JSON file using an external web service with a custom template.<br /><br />
+								We explain the algorithm to build the tree and bi-partite diagram in terms of node and link construction. For the nodes and links of the tree diagram, D3 has built-in support for generating a tree layout object from a provided JSON data file. The D3 code for creating collapsible tree diagrams can be found at <a href="https://bl.ocks.org/mbostock/4339083" target="_blank">https://bl.ocks.org/mbostock/4339083</a>. For the styling of the leaf nodes, nodes with connections or links (as part of the bi-partite diagram) are in blue and those without connections are in grey.</p>
+
+							<p>For the bi-partite diagram, since the raw data itself does not contain explicit relationships, we had to do some text mining to extract and construct relationships between software leaves and its attributes. There are currently two attributes used (i.e., “user type” and “user task”) from the larger dataset spreadsheet which contains others. For example, given an attribute called “User Type”, we construct a list of nodes of distinct user types from the raw data. We draw a link between a software node and a user type node if the software supports that user type. We also sort the list of attribute nodes by their number of connections from most to least in order to reduce overlap between links, thereby making the visualization more legible. It should be noted that the bipartite aspect of our visualization was coded in d3 custom by the authors of this project.</p>
+
+							<p>In terms of interactivity, we implemented pan/zoom and node/link highlighting and selection. Since the visualization is scaled to fit the browser window, nodes and texts are scaled down and may not be legible. With panning and zooming, users are able to freely adjust the area of focus in the visualization. The compound visualization consists of multiple levels and numerous nodes and edges, which may take higher cognitive loads to trace the origin of one or more links. We implemented node and link highlighting to ease that problem. Currently, users can highlight a single link between a software node and an attribute node by hovering the mouse cursor over the link. Alternatively, they can hover on either side of the nodes to highlight a node label and its links if there is any. They are able to persist the highlighting by mouse clicking, but only one node or link can be highlighted at a time.</p>
+						</main>
+					</article>
+				</div>
+
+				<div class="slide" data-anchor="figure11">
+					<h2>System Map</h2>
+					<img alt="Figure 11: System diagram. First, a CSV file is converted to a JSON file. Next, the data gets parsed and modelled from a JSON file into d3-compatible data structure. Finally, the visualization is rendered." src="fig/11.svg" width="1000px" />
+					<p><span class="flabel">Figure 11:</span> System diagram. First, a CSV file is converted to a JSON file. Next, the data gets parsed and modelled from a JSON file into d3-compatible data structure. Finally, the visualization is rendered.</p>
+				</div>
+			</div>
+
+		<div class="section" id="future-work">
+			<div class="slide">
+				<article class="post entry">
+					<header class="entry-header">
+						<h2 class="entry-subtitle">Future Improvements for Prototype</h2>
+						<p class="entry-meta"></p>
+					</header>
+					<main class="entry-content">
+						<p>While our visualization results succeeded in fulfilling the initial criteria for this project, our visualization could be improved and developed further.</p>
+						<p>A list of suggested immediate improvements that can be made:</p>
+
+						<p>1. Nodes in the hierarchy should be collapsible, so that users can observe connections made between the hierarchy and attributes at different levels of the hierarchy. This would allow the comparison of aggregated data rather than only individual software platform data points. To optimize the visual space and reduce clutter, the link nodes could be made into curved lines rather than straight lines.<br /><br />
+						2. The node links could be optimized to further reduce edge crossings, thus reducing visual clutter. This process would be algorithmic, and automatically optimize for every new set of attributes or changes to the visualization.</p>
+						<p>3. Highlighting parent nodes in the tree diagram should highlight its ancestor nodes and links as well as its children nodes and links in the tree diagram and the bi-partite graph. This would offer a more comprehensive exploration by the user.</p>
+					</main>
+				</article>
+			</div>
+			<div class="slide">
+				<article class="post entry">
+			    <header class="entry-header">
+			      <h2 class="entry-subtitle"></h2>
+			      <p class="entry-meta"></p>
+			    </header>
+			    <main class="entry-content">
+			      <p><b>Integrating the Visualization into a Comprehensive Dashboard Application</b><br /><br />
+							Here we propose a design for taking our visualization a step further and integrating it into a web-based dashboard application that offers information over and beyond what is already available through the tree-diagram bi-partite graph. We have named this proposed design as Project Compara. <button class="fig" onclick="location.href='#future0/figure12'">Figure 12</button> shows a visual mockup of the dashboard application layout.</p>
+						<p>The dashboard design is created with four functional sections for analyzing the data of the toolsets. The main section is designed to have the main visualization type as a tree, with the root titled as the dashboard title itself: Compara. It expands out into the first level of headings, which expands out into another group of subheadings of the software tools. Changing this tree structure would be based on the JSON data file that is loaded into the dashboard. The next section consists of a force-directed layout that provides the user the ability to seek direct relationships between software packages.</p>
+
+						<p>The third section acts as a middle ground, providing general information about the selected tool, including title, product description, the highlighting of the user types and tasks associated. </p>
+						<p>The last section is a treemap visualization that places focus on hierarchy, from main category of software down to the software itself. Additional items considered for the treemap include a list of keywords that contribute to the rationale and description of the categories.</p>
+
+						<p>This places emphasis on hierarchy allowing the user to have a clear understanding of how software selected in the tree relates to the subject matter of focus, intended by the manufacturer of the tool. Based on our research of visualization methods, the force-directed layout (bottom-left) as well as treemap reflect the ability to place focus on relationships and hierarchy, respectively. Extra D3 visualization methods can be daisy chained from the original data set, and further qualitative information can be embedded to offer extra information regarding software platforms or other features (bottom-middle).</p>
+
+			    </main>
+			  </article>
+			</div>
+			<div class="slide" data-anchor="figure12">
+				<article class="post entry">
+					<header class="entry-header">
+						<h2 class="entry-subtitle"></h2>
+						<p class="entry-meta"></p>
+						<img alt="Figure 12: Project Compara is a dashboard design created to house the visualization, as well as integrate other support data views to complement it." src="fig/12.png" height="800px" />
+						<p><span class="flabel">Figure 12:</span> Project Compara is a dashboard design created to house the visualization, as well as integrate other support data views to complement it.</p>
+					</header>
+				</article>
+			</div>
+			<div class="slide" id="conclusion">
+				<article class="post entry">
+			    <header class="entry-header">
+			      <h2 class="entry-subtitle">Conclusion</h2>
+			      <p class="entry-meta"></p>
+			    </header>
+			    <main class="entry-content">
+						<p>To conclude we will review the initial criteria of this project including the project purpose and the objectives and questions to evaluate the success of our visualization. Finally, we will discuss potential future improvements as well as possible applications for our visualization project.<br /><br />
+
+						We believe our visualization is a viable solution to the stated purpose of this project. We visualized the entire software taxonomy, making clear its hierarchical structure in a way that is organized and understandable using a horizontal tree-diagram.<br /><br />
+
+						We implemented a bipartite graph to successfully visualize how attributes are connected to software platforms, even when some software or platforms have multiple relationships. We achieved one of the central uses for this visualization project, which was to help users identify which software are associated with specific user-types. </p>
+
+						<p>We also created a way to discover relationships between different sets of attributes and software platforms using the drop-down menu. We believe this visualization technique can be generalized to other domains. This visualization can definitely be scaled to datasets of different sizes to show different hierarchical structures and associations, but comparing qualitative attributes becomes difficult when the structure becomes too large.<br /><br />
+
+						Based on our initial objectives and questions, we believe our visualization has appropriate answers for each. In order to visualize a hierarchical structure and associated external attributes, we implemented a tree-diagram/bipartite graph. </p>
+
+						<p>From our own research, we cannot find an example of this kind of visualization being used in any similar context. It is possible that we have created an innovative visualization approach. We converted a structured spreadsheet into a visualization that makes the hierarchical structure much clearer than a traditional tabular format. We believe that our visualization has translated an indexical structure into something that is both aesthetic and engaging, incorporating smooth D3 vector visuals with exploratory interactive features. Finally, we believe this visualization is most effective when it supports user interactions, which allow users to solve the perceptual problems that arise when dealing with an intricate and dense visual structure as this one. <button>&nbsp;</button></p>
+			    </main>
+			  </article>
+			</div>
+		</div>
+
+		<div class="section" id="endnotes">
+			<article class="post entry">
+				<header class="entry-header">
+					<h2 class="entry-subtitle">Endnotes</h2>
+					<p class="entry-meta"></p>
+				</header>
+				<main class="entry-content">
+					<i>
+						<p><sup>1</sup>Two systems were built to support the taxonmy, Compara and VIZLAND. This paper focuses on Compara.</p>
+
+						<p><b>Compara:</b> visualizes a taxonomy of software packages and the relationships they have to users, tasks, interaction elements, file formats, and the various computer languages part of their respective architectures. </p>
+
+						<p><b>VIZLAND</b> (the VisualIZation LANDscape): aspires to map a multitude of libraries that define data visualization types, their functions, their representational form, shapes, analytic capabilities, and descriptions, and making them queryable through a web interface.</p>
+					</i>
+				</main>
+			</article>
+
+		</div>
+
+		<div class="section" id="bibliography">
+			<article class="post entry">
+				<header class="entry-header">
+					<h2 class="entry-subtitle">Bibliography</h2>
+					<p class="entry-meta"></p>
+				</header>
+				<main class="entry-content">
+					<p>Bohland, J. W., Bokil, H., Allen, C. B., & Mitra, P. P. (2009). The brain atlas concordance problem: quantitative comparison of anatomical parcellations. <i>PloS one</i>, 4(9), e7200.</p>
+
+					<p>Bowes J. et al. (2018). User-Centered Taxonomy for Urban Transportation Applications. In: <i>Nah FH., Xiao B. (eds) HCI in Business, Government, and Organizations. </i>HCIBGO 2018. Lecture Notes in Computer Science, vol 10923. Springer, Cham.</p>
+
+					<p>Cain, A.J. (2011). Taxonomy. In <i>Encyclopaedia Britannica Online</i>. Retrieved from <a href="https://www.britannica.com/science/taxonomy" target="_blank">https://www.britannica.com/science/taxonomy</a></p>
+
+					<p>Grimstead, I. J., Walker, D. W., & Avis, N. J. (2005, October). Collaborative visualization: A review and taxonomy. In <i>Distributed Simulation and Real-Time Applications, 2005. DS-RT 2005 Proceedings. Ninth IEEE International Symposium on</i> (pp. 61-69). IEEE.</p>
+
+					<p>Gulden, J., Reijers, H. A., Grabis, J., & Sandkuhl, K. (2015). Toward Advanced Visualization Techniques for Conceptual Modeling. In <i>CAiSE Forum</i> (pp. 33-40).</p>
+
+					<p>Kucher, K., & Kerren, A. (2015, April). Text visualization techniques: Taxonomy, visual survey, and community insights. In <i>Visualization Symposium (PacificVis)</i>, 2015 IEEE Pacific (pp. 117-121). IEEE.</p>
+
+					<p>Lima, M. (2014). The book of trees: visualizing branches of knowledge. S. E. Stemen (Ed.). <i>Princeton Architectural Press.</i></p>
+
+					<p>Wang, L., Wu, H., Wang, W., & Chen, K. C. (2015). Socially enabled wireless networks: resource allocation via bipartite graph matching. <i>IEEE Communications Magazine</i>, 53(10), 128-135.</p>
+
+					<p>Wattenberg, M. (2002). Arc diagrams: Visualizing structure in strings. In Information Visualization, 2002. INFOVIS 2002. <i>IEEE Symposium</i> on (pp. 110-116). IEEE.</p>
+				</main>
+
+				<hr />
+				<br />
+				<img alt="OCAD U logo" src="logo.svg" width="100px" />
+			</article>
+
+			<script>
+			var valegal = d3.select('body')
+	        .append('div')
+	        .attr('id', 'legal')
+	        .style('position', 'fixed')
+	        .style('bottom', '50px')
+	        .style('right', '50px')
+	        .append('button')
+	        .text('© Visual Analytics Lab')
+	        .attr('onclick', "location.href='http://www2.ocadu.ca/research/val'");
+
+			var lcmpr = d3.select('body')
+	        .append('div')
+	        .attr('id', 'cmpr')
+	        .style('position', 'fixed')
+	        .style('bottom', '50px')
+	        .style('left', '50px')
+	        .append('button')
+	        .text('Launch Compara')
+	        .attr('onclick', "location.href='app.html'");
+
+			</script>
+
+		</div>
+
+	</div>
+
+
+</body>
+</html>

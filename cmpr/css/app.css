@@ -1,0 +1,136 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: #fefefe;
+    color: #333;
+    font-size: 16px;
+    line-height: 30px
+}
+
+.badge {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 2em;
+    margin: 0 auto;
+    width: 86%;
+    font-size: .438em;
+    line-height: 1.875em;
+    text-transform: uppercase;
+    letter-spacing: .0625em;
+    z-index: 10
+}
+
+.badge a {
+    color: #707070;
+}
+
+.badge span {
+    display: inline-block;
+    font-weight: 700;
+    border-bottom: 1px dotted
+}
+
+.badge:hover span {
+    color: #246edd;
+    border-bottom: 1px dotted transparent
+}
+
+.ui-options {
+    position: fixed;
+    top: 20px;
+    right: 200px;
+    width: 200px;
+    height: 20px;
+}
+
+
+/* on select: #d62728 */
+/* on hover: #0066cc */
+
+.node {
+  cursor: pointer;
+}
+
+.node.noLink circle {
+    stroke: #999;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 8px sans-serif;
+}
+
+.node.active circle{
+    stroke: #0066cc;
+}
+
+.node.active text {
+    cursor: pointer;
+    fill: #0066cc;
+}
+
+.node.selected circle{
+    stroke: #d62728;
+}
+
+.node.selected text {
+    fill: #d62728;
+}
+
+.sideNode circle {
+  fill: #fff;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+.sideNode text {
+  font: 12px sans-serif;
+}
+
+.sideNode.active circle{
+    stroke: #0066cc;
+}
+
+.sideNode.active text {
+    cursor: pointer;
+    fill: #0066cc;
+}
+
+.sideNode.selected circle{
+    stroke: #d62728;
+}
+
+.sideNode.selected text {
+    fill: #d62728;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.sideLink {
+  fill: none;
+  stroke: #999;
+  stroke-width: 1.2px;
+  stroke-opacity: .3;
+}
+
+.sideLink.active {
+    stroke: #0066cc;
+    stroke-width: 2px;
+    stroke-opacity: .8;
+}
+
+.sideLink.selected {
+    stroke: #d62728;
+    stroke-width: 2px;
+    stroke-opacity: .8;
+}
