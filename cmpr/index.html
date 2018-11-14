@@ -15,6 +15,16 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="./css/simptip.min.css" />
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+	<script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
+
+	<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="js/scrolloverflow.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
 </head>
 <body>
 
@@ -104,52 +114,6 @@
 					</main>
 				</article>
 			</div>
-			<!-- <div class="slide" data-anchor="figure2">
-				<article class="post entry">
-					<header class="entry-header">
-						<h2 class="entry-subtitle"></h2>
-						<p class="entry-meta"></p>
-						<img alt="Classification of organisms from the most specific sub-ordinate species level, through to the highest and most broad super-ordinate level of domain (left). Early example of tree diagram visualization entitled the Porphyrian Tree by Ramon Llull from Logica Nova 1512, depicting the levels of being as originally described by Aristotle (right)." src="fig/2.png" max-width="1000px" />
-						<p><span class="flabel">Figure 2:</span> Classification of organisms from the most specific sub-ordinate species level, through to the highest and most broad super-ordinate level of domain (left). Early example of tree diagram visualization entitled the Porphyrian Tree by Ramon Llull from Logica Nova 1512, depicting the levels of being as originally described by Aristotle (right).</p>
-					</header>
-				</article>
-			</div> -->
-			<!-- <div class="slide" id="figure3" data-anchor="figure3">
-				<article class="post entry">
-					<header class="entry-header">
-						<h2 class="entry-subtitle">Hierarchical Visualization</h2>
-						<p class="entry-meta"></p>
-					</header>
-					<main class="entry-content">
-						<p><span class="flabel">Figure 3:</span> Depiction of various hierarchical visualization types inspired by the initial tree diagram as shown in <a href="#bibliography0">Lima (2014)</a>. Each visualization type has unique advantages and disadvantages. <br /><br />Some points on each tree diagram adaptation is provided here: <br /><br />
-							<i>(rollover items below to reveal points)</i>
-							<br /><br />
-							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Original tree diagrams that looked like literal trees. Diagrammatic terms like root node, branch link, and leaf were adapted from this original metaphor.">Figurative Tree Diagram</button>
-							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Vertical Tree Diagram:</em> Common tree diagram abstracted from figurative trees. Nodes and links can incorporate a variety of visual features, symbols, or icons to convey information.">Vertical Tree Diagram</button>
-							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Common tree diagram with correspondence to left-to-right reading.">Horizontal Tree Diagram</button>
-							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Tree diagram with no hierarchical ordering along a particular spatial axis. Effective for very large hierarchical systems as visual space is optimally used, but ranking structure becomes unclear due to flexible layout.">Multidirectional Trees</button>
-							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Tree structure ordered circularly, with the root in the center and sub- ordinate hierarchies moving towards the peripheral. Spatially efficient compared to tree diagram (see Figure 4 for visual comparison).">Radial Tree</button>
-							<button class="simptip-position-right simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Radial tree typically rendered in digital space where some links and nodes are more emphasized than others. Optimizes screen space that radial trees might waste.">Hyperbolic Tree</button>
-							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Space filling visualization depicting hierarchies using nested rectangles. Size of rectangles can correspond to quantitative attributes. Spatially efficient and legible.">Treemap</button>
-							<button class="simptip-position-right simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Similar to Treemaps but use polygons rather than rectangles to present hierarchies. Size of polygons can correspond with quantitative attributes. More spatially optimized than Treemaps and hierarchies are easier to distinguish due to non-recurring shapes.">Voronoi Treemap</button>
-							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Similar to other treemaps, hierarchies depicted as shapes within shapes, and size can correspond to data. Unlike other treemaps this type wastes visual space.">Circular Treemap</button>
-							<button class="simptip-position-right simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Treemap structure ordered circularly. Hierarchies depicted with root in center and sub-ordinate hierarchies moving towards the periphery. Size of shapes can correspond to data. Spatially efficient but distinctions between layers can be hard to perceive.">Sunburst</button>
-							<button class="simptip-position-top simptip-movable half-arrow simptip-multiline simptip-success" data-tooltip="Combination between conventional Tree Diagram and Treemap. Organized top-to-bottom or left-to-right, hierarchy is shown as adjacent rectangles to show rank. Size of shapes can correspond to data. Not as spatially efficient as conventional Treemap.">Icicle Tree</button>
-						</p>
-						<img alt="Figure 3: Depiction of various hierarchical visualization types inspired by the initial tree diagram as shown in Lima (2014). Each visualization type has unique advantages and disadvantages. Some points on each tree diagram adaptation is provided here: "src="fig/3.svg" width="650px" />
-					</main>
-				</article>
-			</div> -->
-			<!-- <div class="slide" data-anchor="figure4">
-				<article class="post entry">
-					<header class="entry-header">
-						<h2 class="entry-subtitle"></h2>
-						<p class="entry-meta"></p>
-						<img alt="Figure 4: Horizontal tree diagram vs. radial tree diagram. Both diagrams depict the same hierarchical data, namely the code structure of an open-source software package called Flare (Heer, Bostock, Ogievetsky, 2010). While both effectively show the hierarchical structures, the circular diagram is spatially more efficient. The horizontal diagram however follows the typical left-to-right reading pattern." src="fig/4.png" height="700px" />
-						<p><span class="flabel">Figure 4:</span> Horizontal tree diagram vs. radial tree diagram. Both diagrams depict the same hierarchical data, namely the code structure of an open-source software package called Flare (Heer, Bostock, Ogievetsky, 2010). While both effectively show the hierarchical structures, the circular diagram is spatially more efficient. The horizontal diagram however follows the typical left-to-right reading pattern.</p>
-					</header>
-				</article>
-			</div> -->
 
 			<div class="slide" id="literature2">
 				<article class="post entry">
@@ -167,22 +131,6 @@
 				</article>
 			</div>
 
-			<!-- <div class="slide" data-anchor="figure5">
-				<img alt="Figure 5: Table of grouped software and attributes (left). Groups of software visualized based on their averaged attribute values in a polar plot." src="fig/5.png" width="900px" />
-				<br /><br />
-				<span><span class="flabel">Figure 5:</span> Table of grouped software and attributes (left). Groups of software visualized based on their averaged attribute values in a polar plot.</span>
-			</div>
-			<div class="slide" data-anchor="figure6a">
-				<img alt="Figure 6a: Kucher and Kerren’s (2015) visualization of text-based visualization types. Leaf nodes represent defining characteristics, which are ordered in a hierarchy from leaf to root (top)." src="fig/6-a.png" width="900px" />
-				<br /><br />
-				<span><span class="flabel">Figure 6a:</span> Kucher and Kerren’s (2015) visualization of text-based visualization types. Leaf nodes represent defining characteristics, which are ordered in a hierarchy from leaf to root (top).</span>
-			</div>
-			<div class="slide" data-anchor="figure6b">
-				<img alt="Figure 6b:</span> Online visual survey of digital text-based visualization types developed by the authors." src="fig/6-b.png" width="900px" />
-				<br /><br />
-				<span><span class="flabel">Figure 6b:</span> Online visual survey of digital text-based visualization types developed by the authors.</span>
-			</div> -->
-
 			<div class="slide" id="literature3">
 				<article class="post entry">
 					<header class="entry-header">
@@ -199,16 +147,7 @@
 					</main>
 				</article>
 			</div>
-			<!-- <div class="slide" data-anchor="figure7">
-				<span><span class="flabel">Figure 7:</span> Arc diagram created by Autodesk research plotting the use of specific applications tasks in their software 3DsMax. The arcs show which commands are used together in sequential order.</span>
-				<p>&nbsp;</p>
-				<img alt="Figure 7: Arc diagram created by Autodesk research plotting the use of specific applications tasks in their software 3DsMax. The arcs show which commands are used together in sequential order." src="fig/7.png" height="800px" />
-			</div>
-			<div class="slide" data-anchor="figure8">
-				<span><span class="flabel">Figure 8:</span> A bipartite graph showing the relationships between two sets of classes. This graph shows which of two sets of brain regions are connected to each other.</span>
-				<p>&nbsp;</p>
-				<img alt="Figure 8: A bipartite graph showing the relationships between two sets of classes. This graph shows which of two sets of brain regions are connected to each other." src="fig/8.png" height="800px" />
-			</div> -->
+
 		</div>
 
 		<div class="section" id="design-process">
@@ -471,48 +410,6 @@
 				<br />
 				<img alt="OCAD U logo" src="logo.svg" width="100px" />
 			</article>
-
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
-			<script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
-
-			<script type="text/javascript" src="js/jquery.fullPage.js"></script>
-			<script type="text/javascript" src="js/scrolloverflow.min.js"></script>
-
-			<script type="text/javascript">
-			$(document).ready(function() {
-				$('#sects').fullpage({
-					navigationTooltips: ['home', 'Abstract', 'Description', 'Objectives', 'Literature Review', 'Design Process', 'The Result', 'Future Work', 'Endnotes', 'Bibliography'],
-					anchors: ['home0', 'abstract0', 'description0', 'objectives0', 'literature0', 'design0', 'result0', 'future0', 'endnotes0', 'bibliography0']
-				});
-			});
-
-			</script>
-
-			<script>
-			var valegal = d3.select('body')
-	        .append('div')
-	        .attr('id', 'legal')
-	        .style('position', 'fixed')
-	        .style('bottom', '50px')
-	        .style('right', '50px')
-	        .append('button')
-	        .text('© Visual Analytics Lab')
-	        .attr('onclick', "location.href='http://www2.ocadu.ca/research/val'");
-
-			var lcmpr = d3.select('body')
-	        .append('div')
-	        .attr('id', 'cmpr')
-	        .style('position', 'fixed')
-	        .style('bottom', '50px')
-	        .style('left', '50px')
-	        .append('button')
-	        .text('Launch Compara')
-	        .attr('onclick', "location.href='app.html'");
-
-			</script>
 
 		</div>
 
