@@ -85,15 +85,19 @@ d3.json(filePath, function(error, data) {
         .style('position', 'fixed')
         .style('top', '50px')
         .style('left', '50px')
-        .append('button')
-        .text('Research Overview')
-        .attr('id', 'notification-trigger')
-        .attr('onclick', "location.href='index.html'");
-
-    var ver = d3.select('#version')
-        .append('span')
-        .text(' | Compara |')
-        .style('font-size','10px');
+        .append('svg').attr({
+          width: 300,
+          height: 300,
+          border: '1px solid #ccc'
+        })
+        .append('svg:image')
+        .attr({
+          'xlink:href': 'logo.svg',
+          x: 0,
+          y: 0,
+          width: 100,
+          height: 100
+        });
 
     var valegal = d3.select('body')
         .append('div')
