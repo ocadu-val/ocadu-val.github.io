@@ -1,6 +1,6 @@
 # Compara
 
-![](logo.svg | width=100)
+![](logo.svg){:width="100px"}
 
 Compara stems from a research project that visualizes a taxonomy of software packages and the relationships they have to users, tasks, interaction elements, file formats, and the various computer languages part of their respective architectures.
 
